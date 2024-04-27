@@ -1,5 +1,6 @@
 # DRXUtil
 DRC/DRH experiments.
+Added functionality of formatting the GamePad only. This removes pair, TV remote setting and forces the GamePad to boot the "Turn on the TV" screen.
 
 ## Disclaimer
 Modifying the DRC firmware can cause permanent damage.  
