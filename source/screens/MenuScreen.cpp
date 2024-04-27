@@ -2,6 +2,7 @@
 #include "Gfx.hpp"
 #include "AboutScreen.hpp"
 #include "FlashScreen.hpp"
+#include "FormatScreen.hpp"
 #include "InfoScreen.hpp"
 #include "SetRegionScreen.hpp"
 
@@ -11,6 +12,7 @@ MenuScreen::MenuScreen()
  : mEntries({
         { MENU_ID_INFO,       { 0xf085, "Show DRC/DRH information" }},
         { MENU_ID_FLASH,      { 0xf1c9, "Flash firmware" }},
+        { MENU_ID_FORMAT,     { 0xf085, "Reset DRC" }},
         { MENU_ID_SET_REGION, { 0xf0ac, "Set region" }},
         { MENU_ID_ABOUT,      { 0xf05a, "About DRXUtil" }},
         // { MENU_ID_EXIT,    { 0xf057, "Exit" }},
@@ -74,6 +76,9 @@ bool MenuScreen::Update(VPADStatus& input)
             break;
         case MENU_ID_FLASH:
             mSubscreen = std::make_unique<FlashScreen>();
+            break;
+        case MENU_ID_FORMAT:
+            mSubscreen = std::make_unique<FormatScreen>();
             break;
         case MENU_ID_SET_REGION:
             mSubscreen = std::make_unique<SetRegionScreen>();
