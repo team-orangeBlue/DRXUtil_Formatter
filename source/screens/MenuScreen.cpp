@@ -1,7 +1,8 @@
 #include "MenuScreen.hpp"
 #include "Gfx.hpp"
 #include "AboutScreen.hpp"
-#include "FlashScreen.hpp"
+#include "DrcFlashScreen.hpp"
+#include "DrcLangScreen.hpp"
 #include "FormatScreen.hpp"
 #include "InfoScreen.hpp"
 #include "SetRegionScreen.hpp"
@@ -11,8 +12,9 @@
 MenuScreen::MenuScreen()
  : mEntries({
         { MENU_ID_INFO,       { 0xf085, "Show DRC/DRH information" }},
-        { MENU_ID_FLASH,      { 0xf1c9, "Flash firmware" }},
-        { MENU_ID_FORMAT,     { 0xf085, "Reset DRC" }},
+        { MENU_ID_DRCFLASH,      { 0xf1c9, "Flash DRC firmware" }},
+        { MENU_ID_DRCLANG,      { 0xf302, "Flash DRC language" }},
+        { MENU_ID_FORMAT,       { 0xf079, "Reset DRC" }},
         { MENU_ID_SET_REGION, { 0xf0ac, "Set region" }},
         { MENU_ID_ABOUT,      { 0xf05a, "About DRXUtil" }},
         // { MENU_ID_EXIT,    { 0xf057, "Exit" }},
@@ -74,8 +76,11 @@ bool MenuScreen::Update(VPADStatus& input)
         case MENU_ID_INFO:
             mSubscreen = std::make_unique<InfoScreen>();
             break;
-        case MENU_ID_FLASH:
-            mSubscreen = std::make_unique<FlashScreen>();
+        case MENU_ID_DRCFLASH:
+            mSubscreen = std::make_unique<DrcFlashScreen>();
+            break;
+        case MENU_ID_DRCLANG:
+            mSubscreen = std::make_unique<DrcLangScreen>();
             break;
         case MENU_ID_FORMAT:
             mSubscreen = std::make_unique<FormatScreen>();
