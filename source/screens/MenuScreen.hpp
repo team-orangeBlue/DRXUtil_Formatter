@@ -19,7 +19,8 @@ private:
 
     enum MenuID {
         MENU_ID_INFO,
-        MENU_ID_FLASH,
+        MENU_ID_DRCFLASH,
+        MENU_ID_DRCLANG,
         MENU_ID_FORMAT,
         MENU_ID_SET_REGION,
         MENU_ID_ABOUT,
